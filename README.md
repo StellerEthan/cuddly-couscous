@@ -1,3 +1,6 @@
+Rounds two of making a React for the 5th Edition D&D API. Started over after some guidence from Eric138 on how to structure the app a lot better!
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
