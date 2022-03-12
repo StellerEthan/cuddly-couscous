@@ -4,7 +4,7 @@ const Footer = () => {
   return(
     <>
       <hr/>
-      <div>Oh Hey Bud</div> 
+      <div>Oh Hey, it's a Footer.</div> 
     </>
   );
 };

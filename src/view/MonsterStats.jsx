@@ -29,7 +29,7 @@ const MonsterStats = () => {
     return moveTypes;
   };
 
-  console.log(monster);
+  console.log('MonsterStats', monster);
 
   const displayMonsterStats = () => {
     return(
