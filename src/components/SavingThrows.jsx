@@ -6,13 +6,10 @@ const SavingThrows = (props) => {
     return prof.proficiency.index.includes('saving');
   });
 
-  console.log('saves', saves);
-
   const displaySaves = (saves) => {
     const saveThrows = saves.map((save) => {
-      console.log('displaySaves', save);
       return(
-        <div key={save.proficiency.index}>{`${save.proficiency.name} : ${save.value}`}</div>
+        <h4 key={save.proficiency.index}>{`${save.proficiency.name} : ${save.value}`}</h4>
       );
     });
     return saveThrows;

@@ -9,11 +9,11 @@ const Header = () => {
   };
 
   return(
-    <>
+    <nav>
       <button onClick={() => {handleClick('/')}}>Home</button>
       <button onClick={() => {handleClick('/monsters')}}>Monsters</button>
       <hr />
-    </>
+    </nav>
   );
 };
 
