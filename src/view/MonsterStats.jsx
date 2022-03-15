@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 
 import { API_URL } from "../util/constants";
 import AbilityScores from "../components/AbilityScores";
-import SavingThrows from "../components/SavingThrows";
 import DamageModify from "../components/DamageModify";
+import Forms from "../components/Forms";
+import SavingThrows from "../components/SavingThrows";
 
 const MonsterStats = () => {
   const { monsterIndex } = useParams();
@@ -59,6 +60,7 @@ const MonsterStats = () => {
     <h4>Type: {monster.type}</h4>
     <h4>Subtype: {ifBlank(monster.subtype)}</h4>
     <DamageModify immune={monster.damage_immunities} resist={monster.damage_resistances} vulnerable={monster.damage_vulnerabilities} condition={monster.condition_immunities} />
+    <Forms forms={monster.forms}/>
     </>
     );
   };
