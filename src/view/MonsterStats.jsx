@@ -8,6 +8,7 @@ import Forms from "../components/Forms";
 import SavingThrows from "../components/SavingThrows";
 import Skills from "../components/Skills";
 import LegendAction from "../components/LegendAction";
+import Actions from "../components/Actions";
 
 const MonsterStats = () => {
   const { monsterIndex } = useParams();
@@ -40,7 +41,7 @@ const MonsterStats = () => {
     return blank;
   };
 
-  console.log(monster);
+  // console.log(monster);
 
   // TODO: actions, Languages, senses, legend actions, reactions, special Ability
 
@@ -60,6 +61,7 @@ const MonsterStats = () => {
         <h4>Armor Class: {monster.armor_class}</h4>
         <h4>Hit Dice: {`${monster.hit_dice} (${monster.hit_points} HP)`}</h4>
         <Skills stats={monster.proficiencies}/>
+        <Actions stats={monster.actions}/>
         <h4>Movement</h4>
         <h4>{monsterMove(monster.speed)}</h4>
         <DamageModify immune={monster.damage_immunities} resist={monster.damage_resistances} vulnerable={monster.damage_vulnerabilities} condition={monster.condition_immunities} />

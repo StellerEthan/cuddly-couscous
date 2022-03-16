@@ -14,12 +14,12 @@ const AbilityScores = (props) => {
             <th>CHA</th>
           </tr>
            <tr>
-            <th>{props.stats.strength}</th>
-            <th>{props.stats.dexterity}</th>
-            <th>{props.stats.constitution}</th>
-            <th>{props.stats.intelligence}</th>
-            <th>{props.stats.strength}</th>
-            <th>{props.stats.strength}</th>
+            <td>{props.stats.strength}</td>
+            <td>{props.stats.dexterity}</td>
+            <td>{props.stats.constitution}</td>
+            <td>{props.stats.intelligence}</td>
+            <td>{props.stats.strength}</td>
+            <td>{props.stats.strength}</td>
           </tr>
         </tbody>
       </table>
