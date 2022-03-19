@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {API_URL} from '../util/constants';
+import SearchBar from "../components/SearchBar";
 
 const MonsterList = () => {
   const navigate = useNavigate();
@@ -31,11 +32,12 @@ const MonsterList = () => {
 
   return(
     <>
-    {monsters ? 
-      displayMonsterList() :
-      null
-    }
-  </>
+      <SearchBar data={monsters} placeholder="Search Monsters"/>
+      {monsters ? 
+        displayMonsterList() :
+        null
+      }
+    </>
   );
 };
 
