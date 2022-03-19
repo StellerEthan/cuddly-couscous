@@ -32,7 +32,10 @@ const MonsterList = () => {
 
   return(
     <>
-      <SearchBar data={monsters} placeholder="Search Monsters"/>
+      {monsters ? 
+          <SearchBar data={monsters} placeholder="Search Monsters"/> :
+          null
+        }
       {monsters ? 
         displayMonsterList() :
         null

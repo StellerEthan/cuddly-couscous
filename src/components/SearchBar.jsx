@@ -1,23 +1,34 @@
 import React, { useState } from "react";
 
-const SearchBar = ({placeholder, data}) => {
+const SearchBar = (props) => {
+  const [filteredData, setFilteredData] = useState([]);
+  
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
 
-  console.log(data);
-
-  const filterList = () => {
-    data.map((value, key) =>{
-      return(
-        <div>{value.name}</div>
-      )
+    let newFilter = props.data.filter((value) => {
+      return value.name.includes(searchWord);
     });
+
+    if (searchWord === ""){
+      newFilter = "";
+    }
+   setFilteredData(newFilter);
   };
+
 
   return(
     <>
       <div>
-        <input type='text' placeholder={placeholder}/>
+        <input type='text' placeholder={props.placeholder} onChange={handleFilter}/>
       </div>
-      <div>{filterList()}</div>
+    {filteredData.length != 0 && <div>{
+          filteredData.map((value, key) =>{
+          return(
+            <div key={key}>{value.name}</div>
+          );
+        })
+      }</div>}
     </>
   );
 };
