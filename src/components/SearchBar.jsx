@@ -13,14 +13,13 @@ const SearchBar = (props) => {
    setFilteredData(newFilter);
   };
 
-  
 
   return(
     <>
       <div>
         <input type='text' placeholder={props.placeholder} onChange={handleFilter}/>
       </div>
-    {filteredData.length !== 0 && <div>{
+    {filteredData.length != 0 && <div>{
           filteredData.map((value, key) =>{
           return(
             <div key={key}>{value.name}</div>
