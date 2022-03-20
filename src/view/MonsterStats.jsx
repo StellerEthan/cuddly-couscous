@@ -7,7 +7,6 @@ import DamageModify from "../components/DamageModify";
 import Forms from "../components/Forms";
 import SavingThrows from "../components/SavingThrows";
 import Skills from "../components/Skills";
-import LegendAction from "../components/LegendAction";
 import Actions from "../components/Actions";
 
 const MonsterStats = () => {
@@ -41,9 +40,9 @@ const MonsterStats = () => {
     return blank;
   };
 
-  // console.log(monster);
+  console.log(monster);
 
-  // TODO: actions, Languages, senses, legend actions, reactions, special Ability
+  // TODO: actions, Languages, senses, reactions, special Ability
 
   const displayMonsterStats = () => {
     return(
@@ -61,11 +60,14 @@ const MonsterStats = () => {
         <h4>Armor Class: {monster.armor_class}</h4>
         <h4>Hit Dice: {`${monster.hit_dice} (${monster.hit_points} HP)`}</h4>
         <Skills stats={monster.proficiencies}/>
+        <h4>Actions:</h4>
         <Actions stats={monster.actions}/>
+        <h4>Legenendary Actions:</h4>
+        <Actions stats={monster.legendary_actions}/>
         <h4>Movement</h4>
         <h4>{monsterMove(monster.speed)}</h4>
         <DamageModify immune={monster.damage_immunities} resist={monster.damage_resistances} vulnerable={monster.damage_vulnerabilities} condition={monster.condition_immunities} />
-        <LegendAction stats={monster.legendary_actions}/>
+
       </>
     );
   };

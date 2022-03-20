@@ -32,7 +32,6 @@ const Actions = (props) => {
 
   return(
     <>
-      <h4>Actions</h4>
       <dl>{displayActions()}</dl>
     </>
   );
