@@ -6,6 +6,7 @@ import AbilityScores from "../components/AbilityScores";
 import DamageModify from "../components/DamageModify";
 import Forms from "../components/Forms";
 import SavingThrows from "../components/SavingThrows";
+import Senses from "../components/Senses";
 import Skills from "../components/Skills";
 import Actions from "../components/Actions";
 
@@ -42,7 +43,7 @@ const MonsterStats = () => {
 
   console.log(monster);
 
-  // TODO: actions, Languages, senses, reactions, special Ability
+  // TODO: senses
 
   const displayMonsterStats = () => {
     return(
@@ -62,12 +63,18 @@ const MonsterStats = () => {
         <Skills stats={monster.proficiencies}/>
         <h4>Actions:</h4>
         <Actions stats={monster.actions}/>
-        <h4>Legenendary Actions:</h4>
+        {monster.legendary_actions.lenth > 0 && <h4>Legenendary Actions:</h4>}
         <Actions stats={monster.legendary_actions}/>
+        {monster.reactions.length > 0 && <h4>Reactions:</h4>}
+        <Actions stats={monster.reactions}/>
         <h4>Movement</h4>
         <h4>{monsterMove(monster.speed)}</h4>
         <DamageModify immune={monster.damage_immunities} resist={monster.damage_resistances} vulnerable={monster.damage_vulnerabilities} condition={monster.condition_immunities} />
-
+        <h4>Languages</h4>
+        <dd>{monster.languages}</dd>
+        {monster.special_abilities.length > 0 && <h4>Special Abilities:</h4>}
+        <Actions stats={monster.special_abilities}/>
+        <Senses stats={monster.senses}/>
       </>
     );
   };
