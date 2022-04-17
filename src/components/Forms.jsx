@@ -11,18 +11,18 @@ const Forms = (props) => {
   };
 
   const displayForms = () => {
-    const formList = forms.map((form, index) => {
-      return(
-        <li key={index}><button onClick={()=>{handleClick(form)}}>{form.name}</button></li>
-      );
-    });
+      const formList = forms.map((form, index) => {
+        return(
+          <li key={index}><button onClick={()=>{handleClick(form)}}>{form.name}</button></li>
+        );
+      });
     return (formList);
   };
 
   return(
     <>
-      {forms.length > 0 && (<h4>Forms</h4>)}
-      {displayForms(forms)}
+      {forms && forms.length > 0 && (<h4>Forms</h4>)}
+      {forms && displayForms(forms)}
     </>
   );
 };

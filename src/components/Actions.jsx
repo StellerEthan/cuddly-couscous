@@ -4,15 +4,15 @@ const Actions = (props) => {
 
 
   // TODO: Fix this! Figure out how to make this dynamic. In case, there is more than 1 type of Damage.
-  const displayDamage = () => {
-    const damageList = props.stats.map((action,index) => {
-      // action is object. action.damage is array of Obj. 
-      return(
-        <div key={index}>{action.damage[index].damage_dice} {action.damage[index].damage_type.name} Damage</div>
-      );
-    });
-    return damageList;
-  };
+  // const displayDamage = () => {
+  //   const damageList = props.stats.map((action,index) => {
+  //     // action is object. action.damage is array of Obj. 
+  //     return(
+  //       <div key={index}>{action.damage[index].damage_dice} {action.damage[index].damage_type.name} Damage</div>
+  //     );
+  //   });
+  //   return damageList;
+  // };
 
   const displayActions = () => {
     const actionList = props.stats.map((action, index)=>{
@@ -32,7 +32,7 @@ const Actions = (props) => {
 
   return(
     <>
-      <dl>{displayActions()}</dl>
+      <dl>{props.stats && displayActions()}</dl>
     </>
   );
 };
