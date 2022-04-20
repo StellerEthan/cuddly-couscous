@@ -7,11 +7,13 @@ import Home from './view/Home';
 import MonsterList from './view/MonsterList';
 import MonsterStats from './view/MonsterStats';
 
+import "./css/All.css";
+import "./css/monsterList.css";
  
 
 const App = () => {
   return(
-    <>
+    <div>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -19,7 +21,7 @@ const App = () => {
         <Route path='/monsters/:monsterIndex' element={<MonsterStats />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 };
 

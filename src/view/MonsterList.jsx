@@ -39,22 +39,24 @@ const MonsterList = () => {
 
     const monsterList = filteredData.map((monster, index) => {
       return(
-        <li key={index}><button onClick={()=>{handleClick(monster)}}>{monster.name}</button></li>
+        <li key={index}><button className="button" onClick={()=>{handleClick(monster)}}>{monster.name}</button></li>
       );
     });
     return monsterList;
   };
 
   return(
-    <>
+    <div>
       <div>
         <input type='text' placeholder='Search Monster' onChange={handleFilter}/>
       </div>
-      {monsters ? 
-        displayMonsterList() :
-        null
-      }
-    </>
+      <div className="button-box">
+        {monsters ? 
+          displayMonsterList() :
+          null
+        }
+      </div>
+    </div>
   );
 };
 
