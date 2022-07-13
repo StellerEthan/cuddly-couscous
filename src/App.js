@@ -7,7 +7,7 @@ import Home from './view/Home';
 import MonsterList from './view/MonsterList';
 import MonsterStats from './view/MonsterStats';
 
-import "./css/All.css";
+import "./css/App.css";
 import "./css/monsterList.css";
  
 

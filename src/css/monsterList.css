@@ -1,10 +1,24 @@
 .button{
   margin: 4px;
-  border: 2px outset #a4741c;
-  font-family: "Lucida Console";
+  border: 2px outset #8d1ca4;
+  font-family: "Arial Black";
+  font-weight: 1000;
 }
 
-.button-box{
+/* .button-box{
   display: grid;
   grid-template-columns:repeat(3, 2fr);
+} */
+
+.button-box{
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  margin-top: 10px;
+}
+
+.myButton {
+  color: black;
+  margin: 3px;
 }

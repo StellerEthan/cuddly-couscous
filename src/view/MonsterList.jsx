@@ -39,7 +39,7 @@ const MonsterList = () => {
 
     const monsterList = filteredData.map((monster, index) => {
       return(
-        <li key={index}><button className="button" onClick={()=>{handleClick(monster)}}>{monster.name}</button></li>
+        <div key={index}><button className="myButton" onClick={()=>{handleClick(monster)}}>{monster.name}</button></div>
       );
     });
     return monsterList;
