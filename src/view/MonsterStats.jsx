@@ -10,6 +10,8 @@ import Senses from "../components/Senses";
 import Skills from "../components/Skills";
 import Actions from "../components/Actions";
 
+import "../css/MonsterStats.css";
+
 const MonsterStats = () => {
   const { monsterIndex } = useParams();
   const [monster, setMonster] = useState();
@@ -47,7 +49,7 @@ const MonsterStats = () => {
 
   const displayMonsterStats = () => {
     return(
-      <>
+      <div className="grid-container">
         <h1>{monster.name}</h1>
         <Forms forms={monster.forms}/>
         <h4>Alignment: {monster.alignment}</h4>
@@ -56,7 +58,7 @@ const MonsterStats = () => {
         <h4>Challenge Rating: {monster.challenge_rating}</h4>
         <h4>Size: {monster.size}</h4>
         <h4>XP: {monster.xp}</h4>
-        <AbilityScores stats={monster}/>
+        <AbilityScores stats={monster} className="ability-scores"/>
         <SavingThrows stats={monster.proficiencies} />
         <h4>Armor Class: {monster.armor_class}</h4>
         <h4>Hit Dice: {`${monster.hit_dice} (${monster.hit_points} HP)`}</h4>
@@ -65,7 +67,7 @@ const MonsterStats = () => {
         <Actions stats={monster.actions}/>
         {monster.legendary_actions && monster.legendary_actions.length > 0 && <h4>Legenendary Actions:</h4>}
         <Actions stats={monster.legendary_actions}/>
-        {monster. reactions && monster.reactions.length > 0 && <h4>Reactions:</h4>}
+        {monster.reactions && monster.reactions.length > 0 && <h4>Reactions:</h4>}
         <Actions stats={monster.reactions}/>
         {monster.speed && <h4>Movement</h4>}
         {monster.speed && <h4>{monsterMove(monster.speed)}</h4>}
@@ -75,7 +77,7 @@ const MonsterStats = () => {
         {monster.special_abilities && monster.special_abilities.length > 0 && <h4>Special Abilities:</h4>}
         <Actions stats={monster.special_abilities}/>
         { monster.senses && <Senses stats={monster.senses}/>}
-      </>
+      </div>
     );
   };
 

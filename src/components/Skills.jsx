@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../css/Skills.css";
+
 const Skills = (props) => {
 
   // TODO: Turn this into a table eventually
@@ -18,9 +20,9 @@ const Skills = (props) => {
   };
 
   return(
-    <>
+    <div className="skill-box">
       {displaySaves(skills)}
-    </>
+    </div>
   );
 };
 
