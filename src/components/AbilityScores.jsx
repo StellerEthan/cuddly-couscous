@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../css/AbilityScores.css";
-
 const AbilityScores = (props) => {
   return(
     <>

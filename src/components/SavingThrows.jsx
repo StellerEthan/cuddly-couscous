@@ -9,16 +9,16 @@ const SavingThrows = (props) => {
   const displaySaves = (saves) => {
     const saveThrows = saves.map((save) => {
       return(
-        <h4 key={save.proficiency.index}>{`${save.proficiency.name} : ${save.value}`}</h4>
+        <h4 className="saving-throw" key={save.proficiency.index}>{`${save.proficiency.name} : ${save.value}`}</h4>
       );
     });
     return saveThrows;
   };
 
   return(
-    <>
+    <div className="saving-box">
       {displaySaves(saves)}
-    </>
+    </div>
   );
 };
 

@@ -1,8 +1,72 @@
-/* .grid-container{
-  display: grid;
-  grid-template-columns: auto auto auto;
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.ability-scores{
+.name{
+  flex-basis: 100%;
+}
 
-} */
+.general-info{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 2px solid #5f758e;
+  width: fit-content;
+  height: fit-content;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.gen-item{
+  margin: 4px;
+}
+
+.saving-box{
+  display: flex;
+  width:fit-content;
+  height: fit-content;
+  border: 2px solid #5f758e;
+  background: #d4cbe5;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 1px;
+  order: 0;
+}
+
+.saving-throw{
+  padding: 2px;
+  color: #000000;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.skill-box{
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid #5f758e;
+  background: #d4cbe5;
+  width: fit-content;
+  padding: 3px;
+  font-size: large;
+}
+
+.ability-table{
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  align-content: center;
+  justify-content: center;
+  border: 2px solid #5f758e;
+}
+
+.ability-item{
+  border: 1px solid #5f758e;
+  background-color: #d4cbe5;
+  text-align: center;
+}

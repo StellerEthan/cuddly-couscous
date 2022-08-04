@@ -49,19 +49,20 @@ const MonsterStats = () => {
 
   const displayMonsterStats = () => {
     return(
-      <div className="grid-container">
-        <h1>{monster.name}</h1>
-        <Forms forms={monster.forms}/>
-        <h4>Alignment: {monster.alignment}</h4>
-        <h4>Type: {monster.type}</h4>
-        {monster.subtype && <h4>Subtype: {ifBlank(monster.subtype)}</h4>}
-        <h4>Challenge Rating: {monster.challenge_rating}</h4>
-        <h4>Size: {monster.size}</h4>
-        <h4>XP: {monster.xp}</h4>
+      <div className="flex-container">
+        <h1 className="name">{monster.name}</h1>
+        <div className="general-info">
+          <h4 className="gen-item">Alignment: {monster.alignment}</h4>
+          <h4 className="gen-item">Type: {monster.type}</h4>
+          {monster.subtype && <h4 className="gen-item">Subtype: {ifBlank(monster.subtype)}</h4>}
+          <h4 className="gen-item">Challenge Rating: {monster.challenge_rating}</h4>
+          <h4 className="gen-item">Size: {monster.size}</h4>
+          <h4 className="gen-item">XP: {monster.xp}</h4>
+          <h4 className="gen-item">Armor Class: {monster.armor_class}</h4>
+          <h4 className="gen-item">Hit Dice: {`${monster.hit_dice} (${monster.hit_points} HP)`}</h4>
+        </div>
         <AbilityScores stats={monster} className="ability-scores"/>
         <SavingThrows stats={monster.proficiencies} />
-        <h4>Armor Class: {monster.armor_class}</h4>
-        <h4>Hit Dice: {`${monster.hit_dice} (${monster.hit_points} HP)`}</h4>
         <Skills stats={monster.proficiencies}/>
         <h4>Actions:</h4>
         <Actions stats={monster.actions}/>
@@ -77,6 +78,7 @@ const MonsterStats = () => {
         {monster.special_abilities && monster.special_abilities.length > 0 && <h4>Special Abilities:</h4>}
         <Actions stats={monster.special_abilities}/>
         { monster.senses && <Senses stats={monster.senses}/>}
+        <Forms forms={monster.forms}/>
       </div>
     );
   };

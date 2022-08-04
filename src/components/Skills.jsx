@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../css/Skills.css";
-
 const Skills = (props) => {
 
   // TODO: Turn this into a table eventually
