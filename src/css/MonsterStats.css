@@ -4,6 +4,12 @@
   flex-wrap: wrap;
 }
 
+.border{
+  border: 2px solid #5f758e;
+  background: #d4cbe5;
+  margin: 3px;
+}
+
 .name{
   flex-basis: 100%;
 }
@@ -13,10 +19,13 @@
   flex-wrap: wrap;
   flex-direction: column;
   border: 2px solid #5f758e;
+  background: #d4cbe5;
   width: fit-content;
   height: fit-content;
   margin-right: 1rem;
   margin-left: 1rem;
+  padding: 2px;
+  align-content: center;
 }
 
 .gen-item{

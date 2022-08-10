@@ -3,6 +3,8 @@ import React from "react";
 const Actions = (props) => {
 
 
+  //TODO: Melee weapons with more than one type of attack. object in dmg array will have keys "choose," "type," and "from."
+
   // TODO: Fix this! Figure out how to make this dynamic. In case, there is more than 1 type of Damage.
   // const displayDamage = () => {
   //   const damageList = props.stats.map((action,index) => {

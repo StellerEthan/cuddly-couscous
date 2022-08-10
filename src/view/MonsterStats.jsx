@@ -44,14 +44,27 @@ const MonsterStats = () => {
     return blank;
   };
 
+  const hasSkill = (monster) => {
+    let check = false;
+    for (let i=0; i < monster.proficiencies.length; i++){
+      if (monster.proficiencies[i].proficiency.index.includes('skill')){
+        check = true;
+        break;
+      } else {
+        check = false;
+      }
+    }
+    return check;
+  }
 
-  // TODO: senses
+  // TODO: make functions to create sections before putting it in displayMonsterStats.
+  //       Then hide sections that won't have information.
 
   const displayMonsterStats = () => {
     return(
-      <div className="flex-container">
+      <main className="flex-container">
         <h1 className="name">{monster.name}</h1>
-        <div className="general-info">
+        <section className="general-info">
           <h4 className="gen-item">Alignment: {monster.alignment}</h4>
           <h4 className="gen-item">Type: {monster.type}</h4>
           {monster.subtype && <h4 className="gen-item">Subtype: {ifBlank(monster.subtype)}</h4>}
@@ -60,26 +73,46 @@ const MonsterStats = () => {
           <h4 className="gen-item">XP: {monster.xp}</h4>
           <h4 className="gen-item">Armor Class: {monster.armor_class}</h4>
           <h4 className="gen-item">Hit Dice: {`${monster.hit_dice} (${monster.hit_points} HP)`}</h4>
-        </div>
-        <AbilityScores stats={monster} className="ability-scores"/>
-        <SavingThrows stats={monster.proficiencies} />
-        <Skills stats={monster.proficiencies}/>
-        <h4>Actions:</h4>
-        <Actions stats={monster.actions}/>
-        {monster.legendary_actions && monster.legendary_actions.length > 0 && <h4>Legenendary Actions:</h4>}
-        <Actions stats={monster.legendary_actions}/>
-        {monster.reactions && monster.reactions.length > 0 && <h4>Reactions:</h4>}
-        <Actions stats={monster.reactions}/>
-        {monster.speed && <h4>Movement</h4>}
-        {monster.speed && <h4>{monsterMove(monster.speed)}</h4>}
-        <DamageModify immune={monster.damage_immunities} resist={monster.damage_resistances} vulnerable={monster.damage_vulnerabilities} condition={monster.condition_immunities} />
-        {monster.languages && <h4>Languages</h4>}
-        {monster.languages && <dd>{monster.languages}</dd>}
-        {monster.special_abilities && monster.special_abilities.length > 0 && <h4>Special Abilities:</h4>}
-        <Actions stats={monster.special_abilities}/>
-        { monster.senses && <Senses stats={monster.senses}/>}
-        <Forms forms={monster.forms}/>
-      </div>
+        </section>
+        <section className="general-info">
+          <AbilityScores stats={monster} className="ability-scores"/>
+          {monster.proficiencies.length > 0 && monster.proficiencies[0].proficiency.index.includes('saving') && <SavingThrows stats={monster.proficiencies} />}
+          {hasSkill(monster) && <Skills stats={monster.proficiencies}/>}
+        </section>
+        <section className="general-info">
+          <h4>Actions:</h4>
+          <Actions stats={monster.actions}/>
+        </section>
+        <section className="general-info">
+          {monster.legendary_actions && monster.legendary_actions.length > 0 && <h4>Legenendary Actions:</h4>}
+          <Actions stats={monster.legendary_actions}/>
+        </section>
+        <section className="general-info">
+          {monster.reactions && monster.reactions.length > 0 && <h4>Reactions:</h4>}
+          <Actions stats={monster.reactions}/>
+        </section>
+        <section className="general-info">
+          {monster.speed && <h4>Movement</h4>}
+          {monster.speed && <h4>{monsterMove(monster.speed)}</h4>}
+        </section>
+        <section className="general-info">
+          <DamageModify immune={monster.damage_immunities} resist={monster.damage_resistances} vulnerable={monster.damage_vulnerabilities} condition={monster.condition_immunities} />
+        </section>
+        <section className="general-info">
+          {monster.languages && <h4>Languages</h4>}
+          {monster.languages && <dd>{monster.languages}</dd>}
+        </section>
+        <section className="general-info">
+          {monster.special_abilities && monster.special_abilities.length > 0 && <h4>Special Abilities:</h4>}
+          <Actions stats={monster.special_abilities}/>
+        </section>
+        <section className="general-info">
+          { monster.senses && <Senses stats={monster.senses}/>}
+        </section>
+        <section className="general-info">
+          <Forms forms={monster.forms}/>
+        </section>
+      </main>
     );
   };
 
